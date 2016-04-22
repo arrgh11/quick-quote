@@ -342,7 +342,7 @@ Quick Quote
 		    <input type="hidden" id="get_desc" name="get_desc" value="">
 		    <input type="hidden" id="get_trim" name="get_trim" value="">
 		    <input type="hidden" id="get_paper" name="get_paper" value="">
-		    <input type="hidden" id="get_ink" name="get_ink" value="">
+		    <input type="hidden" id="get_inks" name="get_inks" value="">
 		    <input type="hidden" id="get_media" name="get_media" value="">
 		    <input type="hidden" id="get_proofs" name="get_proofs" value="">
 		    <input type="hidden" id="get_finishing" name="get_finishing" value="">
@@ -1295,25 +1295,26 @@ function generateQuote() {
 	var adding_third = thirdparty_delivery(); 
 	var adding_local = local_delivery();
 
-	var get_ups = "";
+	var get_ups_yes = "";
 	if (adding_ups > 0) {
-		var get_ups = "O'Neil UPS, FedEx | ";
+		var get_ups_yes = "O'Neil UPS, FedEx | ";
 	}
 
-	var get_local = "";
+	var get_local_yes = "";
 	if (adding_local > 0) {
-		var get_local = "O'Neil Local Delivery | ";
+		var get_local_yes = "O'Neil Local Delivery | ";
 	}
 
-	var get_third = "";
+	var get_third_yes = "";
 	if (adding_third > 0) {
-		var get_third = "3rd Party Carrier | ";
+		var get_third_yes = "3rd Party Carrier | ";
 	}
-	var get_pickup
+	var get_pickup_yes = "";
 	if (adding_pick > 0) {
-		var get_pickup = "Pickup";
+		var get_pickup_yes = "Pickup";
 	}
 
+	var get_delivery_yes = get_ups_yes + get_local_yes + get_third_yes + get_pickup_yes;
 
 	var adding_pdf = addPdf();
 	var adding_external = addExternal();
@@ -1340,11 +1341,11 @@ function generateQuote() {
 
 	var getfront_inks = document.getElementById("ink_front");
 	var getink_front = getfront_inks.options[getfront_inks.selectedIndex].value;
-	getink_front = parseInt(getink_front);
+	
 
 	var getback_inks = document.getElementById("ink_back");
 	var getink_back = getback_inks.options[getback_inks.selectedIndex].value;
-	getink_back = parseInt(getink_back);
+	
 
 // ======================
 
@@ -1352,18 +1353,18 @@ function generateQuote() {
 	var get_contact = document.getElementById("contact").value;
 	var get_email = document.getElementById("email").value;
 
-	var get_ink = "Front: " + getfront_inks + " | Back: " + getback_inks;
+	var get_ink1 = "Front: " + getink_front + " | Back: " + getink_back;
 	var get_paper = paper_name.options[paper_name.selectedIndex].text;
 
 	document.getElementById("get_desc").value = get_desc;
 	document.getElementById("get_trim").value = get_trim;
 	document.getElementById("get_paper").value = get_paper;
-	document.getElementById("get_ink").value = get_ink;
+	document.getElementById("get_inks").value = get_ink1;
 	
 	document.getElementById("get_proofs").value = get_pdf + get_external;
 	document.getElementById("get_finishing").value = get_trim + get_perf + get_score + get_fold + get_drill + get_round + get_pad + get_shrink;
 	document.getElementById("get_misc").value = get_misc;
-	document.getElementById("get_delivery").value = get_ups + get_local + get_third + get_pickup;
+	document.getElementById("get_delivery").value = get_delivery_yes;
 
 	document.getElementById("get_company").value = get_company;
 	document.getElementById("get_contact").value = get_contact;
