@@ -1286,6 +1286,91 @@ function generatePrice() {
 
 }
 
+function generateQuote() {
+
+	var get_desc = document.getElementById("desc").value;
+
+	var adding_ups = ups_delivery();
+	var adding_pick = pickup_delivery();
+	var adding_third = thirdparty_delivery(); 
+	var adding_local = local_delivery();
+
+	var get_ups = "";
+	if (adding_ups > 0) {
+		var get_ups = "O'Neil UPS, FedEx | ";
+	}
+
+	var get_local = "";
+	if (adding_local > 0) {
+		var get_local = "O'Neil Local Delivery | ";
+	}
+
+	var get_third = "";
+	if (adding_third > 0) {
+		var get_third = "3rd Party Carrier | ";
+	}
+	var get_pickup
+	if (adding_pick > 0) {
+		var get_pickup = "Pickup";
+	}
+
+
+	var adding_pdf = addPdf();
+	var adding_external = addExternal();
+
+	var get_pdf = "";
+	var get_external = "";
+
+	if (adding_pdf > 0) {
+		var get_pdf = "PDF/Internal | ";
+	}
+	if (adding_external > 0) {
+		var get_external = "External";
+	}
+	
+
+	var getTrimSize = flat_width*flat_length;
+  	var paper_name = document.getElementById("paper");
+
+  	var trimadd = addTrim();
+  	var get_trim = "";
+  	if (trimadd > 0) {
+  		var get_trim = "Trim | ";
+  	}
+
+	var getfront_inks = document.getElementById("ink_front");
+	var getink_front = getfront_inks.options[getfront_inks.selectedIndex].value;
+	getink_front = parseInt(getink_front);
+
+	var getback_inks = document.getElementById("ink_back");
+	var getink_back = getback_inks.options[getback_inks.selectedIndex].value;
+	getink_back = parseInt(getink_back);
+
+// ======================
+
+	var get_company = document.getElementById("company").value;
+	var get_contact = document.getElementById("contact").value;
+	var get_email = document.getElementById("email").value;
+
+	var get_ink = "Front: " + getfront_inks + " | Back: " + getback_inks;
+	var get_paper = paper_name.options[paper_name.selectedIndex].text;
+
+	document.getElementById("get_desc").value = get_desc;
+	document.getElementById("get_trim").value = get_trim;
+	document.getElementById("get_paper").value = get_paper;
+	document.getElementById("get_ink").value = get_ink;
+	
+	document.getElementById("get_proofs").value = get_pdf + get_external;
+	document.getElementById("get_finishing").value = get_trim + get_perf + get_score + get_fold + get_drill + get_round + get_pad + get_shrink;
+	document.getElementById("get_misc").value = get_misc;
+	document.getElementById("get_delivery").value = get_ups + get_local + get_third + get_pickup;
+
+	document.getElementById("get_company").value = get_company;
+	document.getElementById("get_contact").value = get_contact;
+	document.getElementById("get_email").value = get_email;
+
+}
+
 
 </script>
 
