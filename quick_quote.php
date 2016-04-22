@@ -328,7 +328,6 @@ Quick Quote
 
 <button type="button" onclick="generatePrice()" class="btn btn-primary">Generate Quote</button> <br /><br />
 
-			Your price:<INPUT type="text" id="generated_price" readonly style="color:red;" class="form-control"/>
 			Your price:<INPUT type="text" id="generated_quote" readonly style="color:red;" class="form-control"/>
 
 			</form>
