@@ -33,22 +33,22 @@ Quick Quote
 			<div class="col-md-12"><h2><small>Sales Rep:</small></h2>
 				<select id="sales_rep" class="form-control">
 					<option value="anthony_narducci_sig.jpg">Anthony Narducci</option>
-					<option value="anthony_narducci_sig.jpg">Bob Alderson</option>
-					<option value="anthony_narducci_sig.jpg">Brent Gehre</option>
-					<option value="anthony_narducci_sig.jpg">Bruce VanderHaar</option>
-					<option value="anthony_narducci_sig.jpg">Candice Scott</option>
-					<option value="anthony_narducci_sig.jpg">Chandler Yelton</option>
-					<option value="anthony_narducci_sig.jpg">Connie Forney</option>
-					<option value="anthony_narducci_sig.jpg">Cynthia Brussels</option>
-					<option value="anthony_narducci_sig.jpg">Dick Ganzert</option>
-					<option value="anthony_narducci_sig.jpg">Jason Hogue</option>
-					<option value="anthony_narducci_sig.jpg">Lucy Lawrence</option>
-					<option value="anthony_narducci_sig.jpg">Michael Szymanski</option>
-					<option value="anthony_narducci_sig.jpg">Nicole Kuszynski</option>
-					<option value="anthony_narducci_sig.jpg">Norb Rasmussen</option>
-					<option value="anthony_narducci_sig.jpg">Scott Maines</option>
-					<option value="anthony_narducci_sig.jpg">Sean Laizure</option>
-					<option value="anthony_narducci_sig.jpg">Rhonda O'Shea</option>
+					<option value="bob_alderson_sig.jpg">Bob Alderson</option>
+					<option value="brent_gehre_sig.jpg">Brent Gehre</option>
+					<option value="bruce_vanderhaar_sig.jpg">Bruce VanderHaar</option>
+					<option value="candice_scott_sig.jpg">Candice Scott</option>
+					<option value="chandler_yelton_sig.jpg">Chandler Yelton</option>
+					<option value="connie_forney_sig.jpg">Connie Forney</option>
+					<option value="cynthia_brussels_sig.jpg">Cynthia Brussels</option>
+					<option value="dick_ganzert_sig.jpg">Dick Ganzert</option>
+					<option value="jason_hogue_sig.jpg">Jason Hogue</option>
+					<option value="lucy_lawrence_sig.jpg">Lucy Lawrence</option>
+					<option value="michael_szymanski_sig.jpg">Michael Szymanski</option>
+					<option value="nicole_kuszynski_sig.jpg">Nicole Kuszynski</option>
+					<option value="norb_rasmussen_sig.jpg">Norb Rasmussen</option>
+					<option value="scott_maines_sig.jpg">Scott Maines</option>
+					<option value="sean_laizure_sig.jpg">Sean Laizure</option>
+					<option value="rhonda_o'shea_sig.jpg">Rhonda O'Shea</option>
 				</select>
 			</div>
 		</div>
@@ -233,8 +233,8 @@ Quick Quote
 			</div>
 			<div class="col-md-4">
 				<h2><small>Paper Size:</small></h2> 
-					<input type="radio" value="1" name="paper_size"> 12x18</input>
-					<input type="radio" value="2" name="paper_size"> 13x19</input>
+					<input type="radio" value="1" name="paper_size" > 12x18</input>
+					<input type="radio" value="2" name="paper_size" > 13x19</input>
 			</div>
 		</div>
 
@@ -277,10 +277,10 @@ Quick Quote
 				<h3><small>Round Corner:</small></h3>
 					<select id="rounded_corner_options" class="form-control">
 						<option value="0">None</option>
-						<option value="1">1/8"</option>
-						<option value="2">1/4"</option>
-						<option value="3">3/8"</option>
-						<option value="4">1/2"</option>
+						<option value="1">1/8&#34;</option>
+						<option value="2">1/4&#34;</option>
+						<option value="3">3/8&#34;</option>
+						<option value="4">1/2&#34;</option>
 					</select>	
 			</div>
 			<div class="col-md-4">
@@ -307,10 +307,10 @@ Quick Quote
 		</div>
 		<div class="row">
 			<div class="col-md-3">
-				<input type="checkbox" name="delivery" id="ups"> O'Neil UPS, FedEx</input>
+				<input type="checkbox" name="delivery" id="ups"> O&#39;Neil UPS, FedEx</input>
 			</div>
 			<div class="col-md-3">
-				<input type="checkbox" name="delivery" id="local_delivery_option"> O'Neil Local Delivery</input>
+				<input type="checkbox" name="delivery" id="local_delivery_option"> O&#39;Neil Local Delivery</input>
 			</div>
 			<div class="col-md-3">
 				<input type="checkbox" name="delivery" id="third_party_option"> 3rd Party Carrier</input>
@@ -339,16 +339,36 @@ Quick Quote
 	<div class="row">
 	<div class="col-md-4 col-md-offset-4">
 		<form method="post" action="loq_qq.php">
+			<input type="hidden" id="get_date" name="get_date" value="">
+			<input type="hidden" id="get_contact" name="get_contact" value="">
+			<input type="hidden" id="get_company" name="get_company" value="">
+			<input type="hidden" id="get_email" name="get_email" value="">
+
 		    <input type="hidden" id="get_desc" name="get_desc" value="">
-		    <input type="hidden" id="get_trim" name="get_trim" value="">
+		    <input type="hidden" id="get_FlattrimSize" name="get_FlattrimSize" value="">
 		    <input type="hidden" id="get_paper" name="get_paper" value="">
-		    <input type="hidden" id="get_ink" name="get_ink" value="">
+		    <input type="hidden" id="get_inks" name="get_inks" value="">
 		    <input type="hidden" id="get_media" name="get_media" value="">
 		    <input type="hidden" id="get_proofs" name="get_proofs" value="">
-		    <input type="hidden" id="get_finishing" name="get_finishing" value="">
+
+		    <input type="hidden" id="get_trim" name="get_trim" value="">
+		    <input type="hidden" id="get_fold" name="get_fold" value="">
+		    <input type="hidden" id="get_score" name="get_score" value="">
+		    <input type="hidden" id="get_perf" name="get_perf" value="">
+		    <input type="hidden" id="get_drill" name="get_drill" value="">
+		    <input type="hidden" id="get_round" name="get_round" value="">
+		    <input type="hidden" id="get_pad" name="get_pad" value="">
+		    <input type="hidden" id="get_shrink" name="get_shrink" value="">
+
 		    <input type="hidden" id="get_misc" name="get_misc" value="">
-		    <input type="hidden" id="get_delivery" name="get_delivery" value="">
+
+		    <input type="hidden" id="get_ups" name="get_ups" value="">
+		    <input type="hidden" id="get_local" name="get_local" value="">
+		    <input type="hidden" id="get_third" name="get_third" value="">
+		    <input type="hidden" id="get_pickup" name="get_pickup" value="">
+
 		    <input type="hidden" id="get_total" name="get_total" value="">
+		    <input type="hidden" id="get_sig" name="get_sig" value="">
 
 		    <button type="submit" class="btn btn-info btn-lg" label="Generate Quote" onclick="generateQuote()">Generate Letter of Quote</button>
 		</form>
@@ -1283,6 +1303,167 @@ function generatePrice() {
 
 	// document.getElementById("generated_quote").value = TotalSubs;
 
+
+}
+
+function generateQuote() {
+
+	var get_desc = document.getElementById("desc").value;
+
+	var adding_ups = ups_delivery();
+	var adding_pick = pickup_delivery();
+	var adding_third = thirdparty_delivery(); 
+	var adding_local = local_delivery();
+
+	var get_ups_yes = "";
+	var get_local_yes = "";
+	var get_third_yes = "";
+	var get_pickup_yes = "";
+
+	if (ups_delivery() > 0) {
+		var get_ups_yes = "O'Neil UPS, FedEx | ";
+	}
+
+	if (local_delivery() > 0) {
+		var get_local_yes = "O'Neil Local Delivery | ";
+	}
+
+	if (thirdparty_delivery() > 0) {
+		var get_third_yes = "3rd Party Carrier | ";
+	}
+	
+	if (pickup_delivery() > 0) {
+		var get_pickup_yes = "Pickup";
+	}
+
+	var get_delivery_yes = get_ups_yes + get_local_yes + get_third_yes + get_pickup_yes;
+
+	var adding_pdf = addPdf();
+	var adding_external = addExternal();
+
+	var get_pdf = "";
+	var get_external = "";
+
+	if (adding_pdf > 0) {
+		var get_pdf = "PDF/Internal | ";
+	}
+	if (adding_external > 0) {
+		var get_external = "External";
+	}
+	
+	var flat_width_5 = document.getElementById("flat_width").value;
+	var flat_length_5 = document.getElementById("flat_length").value;
+
+	var getFlatTrimSize = "Flat Trim Size: " + flat_length_5 + " x " + flat_width_5;
+  	var paper_name = document.getElementById("paper");
+
+  	var trimadd = addTrim();
+  	var get_trim = "";
+  	if (trimadd > 0) {
+  		var get_trim = "Trim | ";
+  	}
+
+  	var foldadd = addFold();
+  	var get_fold = "";
+  	if (foldadd > 0) {
+  		var get_fold = "Fold | ";
+  	}
+
+  	var scoreadd = addScore();
+  	var get_score = "";
+  	if (scoreadd > 0) {
+  		var get_score = "Score | ";
+  	}
+
+  	var perfadd = addPerf();
+  	var get_perf = "";
+  	if (perfadd > 0) {
+  		var get_perf = "Perf | ";
+  	}
+
+  	var drilladd = addDrill();
+  	var get_drill = "";
+  	if (drilladd > 0) {
+  		var get_drill = "Drill ";
+  	}
+
+  	var addPadIn = document.getElementById("pad_in").value;
+  	var get_pad = "Pad In Qty: " + addPadIn;
+
+  	var addShrinkIn = document.getElementById("shrink").value;
+  	var get_shrink = "Shrink In Qty: " + addShrinkIn;
+
+  	var rounded2 = document.getElementById("rounded_corner_options");
+	var r_corners2 = rounded2.options[rounded2.selectedIndex].text;
+	var get_round = "Rounded Corners: " + r_corners2;
+
+	var getfront_inks = document.getElementById("ink_front");
+	var getink_front = getfront_inks.options[getfront_inks.selectedIndex].value;
+	
+
+	var getback_inks = document.getElementById("ink_back");
+	var getink_back = getback_inks.options[getback_inks.selectedIndex].value;
+	
+
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+
+	if(dd<10) {
+	    dd='0'+dd
+	} 
+
+	if(mm<10) {
+		mm='0'+mm
+	} 
+
+	today = mm+'/'+dd+'/'+yyyy;
+	
+
+	var get_misc = document.getElementById("misc").value;
+
+// ======================
+
+	var get_company = document.getElementById("company").value;
+	var get_contact = document.getElementById("contact").value;
+	var get_email = document.getElementById("email").value;
+	var get_salesRep = document.getElementById("sales_rep");
+	var get_sig = get_salesRep.options[get_salesRep.selectedIndex].value;
+
+	var get_ink1 = "Front: " + getink_front + " | Back: " + getink_back;
+	var get_paper = paper_name.options[paper_name.selectedIndex].text;
+
+	document.getElementById("get_desc").value = get_desc;
+	document.getElementById("get_FlattrimSize").value = getFlatTrimSize;
+
+	document.getElementById("get_paper").value = get_paper;
+	document.getElementById("get_inks").value = get_ink1;
+	
+	document.getElementById("get_proofs").value = get_pdf + get_external;
+	document.getElementById("get_trim").value = get_trim;
+	document.getElementById("get_fold").value = get_fold;
+	document.getElementById("get_score").value = get_score;
+	document.getElementById("get_perf").value = get_perf;
+	document.getElementById("get_drill").value = get_drill;
+	document.getElementById("get_round").value = get_round;
+	document.getElementById("get_pad").value = get_pad;
+	document.getElementById("get_shrink").value = get_shrink;
+
+	document.getElementById("get_misc").value = get_misc;
+
+	document.getElementById("get_ups").value = get_ups_yes;
+	document.getElementById("get_local").value = get_local_yes;
+	document.getElementById("get_third").value = get_third_yes;
+	document.getElementById("get_pickup").value = get_pickup_yes;
+
+	document.getElementById("get_company").value = get_company;
+	document.getElementById("get_contact").value = get_contact;
+	document.getElementById("get_email").value = get_email;
+	document.getElementById("get_date").value = today;
+	document.getElementById("get_sig").value = get_sig;
+
+	document.getElementById("get_total").value = document.getElementById("generated_quote").value;
 
 }
 
