@@ -369,6 +369,7 @@ Quick Quote
 
 		    <input type="hidden" id="get_total" name="get_total" value="">
 		    <input type="hidden" id="get_sig" name="get_sig" value="">
+		    <input type="hidden" id="get_qty" name="get_qty" value="">
 
 		    <button type="submit" class="btn btn-info btn-lg" label="Generate Quote" onclick="generateQuote()">Generate Letter of Quote</button>
 		</form>
@@ -1425,6 +1426,8 @@ function generateQuote() {
 
 // ======================
 
+	var get_qty = document.getElementById("qty_1").value;
+
 	var get_company = document.getElementById("company").value;
 	var get_contact = document.getElementById("contact").value;
 	var get_email = document.getElementById("email").value;
@@ -1462,6 +1465,7 @@ function generateQuote() {
 	document.getElementById("get_email").value = get_email;
 	document.getElementById("get_date").value = today;
 	document.getElementById("get_sig").value = get_sig;
+	document.getElementById("get_qty").value = get_qty;
 
 	document.getElementById("get_total").value = document.getElementById("generated_quote").value;
 
