@@ -1384,7 +1384,7 @@ function generateQuote() {
   	var drilladd = addDrill();
   	var get_drill = "";
   	if (drilladd > 0) {
-  		var get_drill = "Drill";
+  		var get_drill = "Drill ";
   	}
 
   	var addPadIn = document.getElementById("pad_in").value;
@@ -1420,6 +1420,8 @@ function generateQuote() {
 
 	today = mm+'/'+dd+'/'+yyyy;
 	
+
+	var get_misc = document.getElementById("misc").value;
 
 // ======================
 
