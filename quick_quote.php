@@ -33,22 +33,22 @@ Quick Quote
 			<div class="col-md-12"><h2><small>Sales Rep:</small></h2>
 				<select id="sales_rep" class="form-control">
 					<option value="anthony_narducci_sig.jpg">Anthony Narducci</option>
-					<option value="anthony_narducci_sig.jpg">Bob Alderson</option>
-					<option value="anthony_narducci_sig.jpg">Brent Gehre</option>
-					<option value="anthony_narducci_sig.jpg">Bruce VanderHaar</option>
-					<option value="anthony_narducci_sig.jpg">Candice Scott</option>
-					<option value="anthony_narducci_sig.jpg">Chandler Yelton</option>
-					<option value="anthony_narducci_sig.jpg">Connie Forney</option>
-					<option value="anthony_narducci_sig.jpg">Cynthia Brussels</option>
-					<option value="anthony_narducci_sig.jpg">Dick Ganzert</option>
-					<option value="anthony_narducci_sig.jpg">Jason Hogue</option>
-					<option value="anthony_narducci_sig.jpg">Lucy Lawrence</option>
-					<option value="anthony_narducci_sig.jpg">Michael Szymanski</option>
-					<option value="anthony_narducci_sig.jpg">Nicole Kuszynski</option>
-					<option value="anthony_narducci_sig.jpg">Norb Rasmussen</option>
-					<option value="anthony_narducci_sig.jpg">Scott Maines</option>
-					<option value="anthony_narducci_sig.jpg">Sean Laizure</option>
-					<option value="anthony_narducci_sig.jpg">Rhonda O'Shea</option>
+					<option value="bob_alderson_sig.jpg">Bob Alderson</option>
+					<option value="brent_gehre_sig.jpg">Brent Gehre</option>
+					<option value="bruce_vanderhaar_sig.jpg">Bruce VanderHaar</option>
+					<option value="candice_scott_sig.jpg">Candice Scott</option>
+					<option value="chandler_yelton_sig.jpg">Chandler Yelton</option>
+					<option value="connie_forney_sig.jpg">Connie Forney</option>
+					<option value="cynthia_brussels_sig.jpg">Cynthia Brussels</option>
+					<option value="dick_ganzert_sig.jpg">Dick Ganzert</option>
+					<option value="jason_hogue_sig.jpg">Jason Hogue</option>
+					<option value="lucy_lawrence_sig.jpg">Lucy Lawrence</option>
+					<option value="michael_szymanski_sig.jpg">Michael Szymanski</option>
+					<option value="nicole_kuszynski_sig.jpg">Nicole Kuszynski</option>
+					<option value="norb_rasmussen_sig.jpg">Norb Rasmussen</option>
+					<option value="scott_maines_sig.jpg">Scott Maines</option>
+					<option value="sean_laizure_sig.jpg">Sean Laizure</option>
+					<option value="rhonda_o'shea_sig.jpg">Rhonda O'Shea</option>
 				</select>
 			</div>
 		</div>
@@ -368,6 +368,7 @@ Quick Quote
 		    <input type="hidden" id="get_pickup" name="get_pickup" value="">
 
 		    <input type="hidden" id="get_total" name="get_total" value="">
+		    <input type="hidden" id="get_sig" name="get_sig" value="">
 
 		    <button type="submit" class="btn btn-info btn-lg" label="Generate Quote" onclick="generateQuote()">Generate Letter of Quote</button>
 		</form>
@@ -1425,6 +1426,8 @@ function generateQuote() {
 	var get_company = document.getElementById("company").value;
 	var get_contact = document.getElementById("contact").value;
 	var get_email = document.getElementById("email").value;
+	var get_salesRep = document.getElementById("sales_rep");
+	var get_sig = get_salesRep.options[get_salesRep.selectedIndex].value;
 
 	var get_ink1 = "Front: " + getink_front + " | Back: " + getink_back;
 	var get_paper = paper_name.options[paper_name.selectedIndex].text;
@@ -1456,6 +1459,7 @@ function generateQuote() {
 	document.getElementById("get_contact").value = get_contact;
 	document.getElementById("get_email").value = get_email;
 	document.getElementById("get_date").value = today;
+	document.getElementById("get_sig").value = get_sig;
 
 	document.getElementById("get_total").value = document.getElementById("generated_quote").value;
 
