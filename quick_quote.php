@@ -399,10 +399,14 @@ function paperCosts() {
   	qnty_5 = parseInt(qty_5);
   	qnty_6 = parseInt(qty_6);
 
+  	var numup = qtyUp();
+  	var numSheets = qnty_1/numup;
+
+
   	var paper_type = document.getElementById("paper");
 	var paper_price = paper_type.options[paper_type.selectedIndex].value;
 
-	var paper_total = paper_price*qnty_1;
+	var paper_total = paper_price*numSheets;
 	var paper_cost = paper_total*0.15;
 	var paper_cost_1 = paper_total+paper_cost;
 
@@ -434,9 +438,13 @@ function indigoCosts(){
   	qnty_5 = parseInt(qty_5);
   	qnty_6 = parseInt(qty_6);
 
+  	var numup1 = qtyUp();
+  	var numSheets1 = qnty_1_1/numup1;
+
+
 	var inks = ink_front+ink_back;
 	var indigo = 0.019*inks;
-	var indigo1 = indigo*qnty_1_1;
+	var indigo1 = indigo*numSheets1;
 	var indigo2 = indigo1*1.15;
 	var indigo3 = Math.round(indigo2*100)/100;
 
@@ -459,6 +467,10 @@ function aq_hard() {
   	qnty_5 = parseInt(qty_5);
   	qnty_6 = parseInt(qty_6);
 
+  	var numup2 = qtyUp();
+  	var numSheets2 = qnty_1_2/numup2;
+
+
 	var aq_coat_cost3=0;
 	var aq_sides = 0;
 
@@ -477,7 +489,7 @@ function aq_hard() {
 
 				    //If they checked the box set candlePrice to 5
 	if(aq_sides != 0) {
-		var aq_coat_cost = 0.017*qnty_1_2;
+		var aq_coat_cost = 0.017*numSheets2;
 		var aq_coat_cost1 = aq_coat_cost*aq_sides;
 		var aq_coat_cost2 = aq_coat_cost1*1.15;
 		var aq_coat_cost3 = Math.round(aq_coat_cost2*100)/100;
@@ -620,9 +632,13 @@ function press() {
   	qty_5_3 = parseInt(qty_5_3);
   	qty_6_3 = parseInt(qty_6_3);	
 
+  	var numup4 = qtyUp();
+  	var numSheets4 = qty_1_3/numup4;
+
+
 
 	var run_rate = runRate(ink_front_1, ink_back_1);
-	var press_rate = qty_1_3/run_rate;
+	var press_rate = numSheets4/run_rate;
 	var press_bhr = press_rate*131.25;
 	var press_efficiency = press_bhr/1;
 	var press_cost = press_efficiency+20;
@@ -653,6 +669,10 @@ function aq_soft() {
   	qty_5_4 = parseInt(qty_5_4);
   	qty_6_4 = parseInt(qty_6_4);
 
+  	var numup3 = qtyUp();
+  	var numSheets3 = qty_1_4/numup3;
+
+
   	var aq_this = document.getElementById("aq");
 	var aq_selected = aq_this.options[aq_this.selectedIndex].value;
 	aq_selected = parseInt(aq_selected);
@@ -660,14 +680,14 @@ function aq_soft() {
 	var aq_soft_total = 0
 
 	if (aq_selected == 1 || aq_selected == 3) {
-		var aq_time = qty_1_4/3600;
+		var aq_time = numSheets3/3600;
 		var aq_bhr = aq_time*78.75;
 		var aq_efficency = aq_bhr/1;
 		var aq_soft_total = aq_efficency+45;
 	}
 
 	if (aq_selected == 2 || aq_selected == 4) {
-		var double_qty_1 = qty_1_4*2;
+		var double_qty_1 = numSheets3*2;
 		var aq_time = double_qty_1/3600;
 		var aq_bhr = aq_time*78.75;
 		var aq_efficency = aq_bhr/1;
@@ -907,11 +927,11 @@ function addTrim() {
 			    //If they checked the box set candlePrice to 5
 		if(includeTrim.checked==true) {
 			var get_Up = qtyUp();
-			if (get_Up >= 1) {
+			if (get_Up <= 5) {
 				var getUp = 6000;
-			} else if (get_Up >= 6) {
+			} else if (get_Up <= 12) {
 				var getUp = 3000;
-			} else if (get_Up >= 13) {
+			} else if (get_Up > 13) {
 				var getUp = 1000;
 			}
 			var trimTime = qnty_1_9/getUp;
