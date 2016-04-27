@@ -2,7 +2,9 @@
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 </head>
 <title>
@@ -18,14 +20,17 @@ Quick Quote
 		<form name="quick_quote">
 
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<h2><small>Client Company:</small></h2><input type="text" id="company" class="form-control" />
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<h2><small>Client Contact:</small></h2><input type="text" id="contact" class="form-control" />
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<h2><small>Client Email:</small></h2><input type="text" id="email" class="form-control" />
+			</div>
+			<div class="col-md-3">
+				<h2><small>Quote Number:</small></h2><input type="text" id="quote" class="form-control" />
 			</div>
 		</div>
 
@@ -232,9 +237,15 @@ Quick Quote
 					</select>
 			</div>
 			<div class="col-md-4">
-				<h2><small>Paper Size:</small></h2> 
-					<input type="radio" value="1" name="paper_size" > 12x18</input>
-					<input type="radio" value="2" name="paper_size" > 13x19</input>
+				<h2><small>Paper Size:</small></h2>
+				<div class="btn-group" data-toggle="buttons">
+	  				<label class="btn active">
+	    				<input type="radio" value="1" name="paper_size" autocomplete="off" checked> 12x18
+	  				</label>
+	 				<label class="btn">
+	    				<input type="radio" value="2" name="paper_size" autocomplete="off"> 13x19
+	  				</label>
+				</div>
 			</div>
 		</div>
 
@@ -370,6 +381,8 @@ Quick Quote
 		    <input type="hidden" id="get_total" name="get_total" value="">
 		    <input type="hidden" id="get_sig" name="get_sig" value="">
 		    <input type="hidden" id="get_qty" name="get_qty" value="">
+
+		    <input type="hidden" id="get_quote" name="get_quote" value="">
 
 		    <button type="submit" class="btn btn-info btn-lg" label="Generate Quote" onclick="generateQuote()">Generate Letter of Quote</button>
 		</form>
@@ -1448,6 +1461,8 @@ function generateQuote() {
 
 	var get_qty = document.getElementById("qty_1").value;
 
+	var get_quote = document.getElementById("quote").value;
+
 	var get_company = document.getElementById("company").value;
 	var get_contact = document.getElementById("contact").value;
 	var get_email = document.getElementById("email").value;
@@ -1486,6 +1501,8 @@ function generateQuote() {
 	document.getElementById("get_date").value = today;
 	document.getElementById("get_sig").value = get_sig;
 	document.getElementById("get_qty").value = get_qty;
+
+	document.getElementById("get_quote").value = get_quote;
 
 	document.getElementById("get_total").value = document.getElementById("generated_quote").value;
 
