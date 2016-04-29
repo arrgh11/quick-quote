@@ -60,48 +60,21 @@ Quick Quote
 		<textarea class="form-control" rows="3" id="desc"></textarea>
 
 		<div class="row">
-			<div class="col-md-12">
-				<h2><small>Quantities:</small></h2>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-2">
-				<h5>QTY1</h5>
+			<div class="col-md-4">
+				<h2><small>Quantity:</small></h2>
 				<input type="text" id="qty_1" class="form-control" />
 			</div>
-			<div class="col-md-2">
-				<h5>QTY2</h5>
-				<input type="text" id="qty_2" class="form-control" />
-			</div>
-			<div class="col-md-2">
-				<h5>QTY3</h5>
-				<input type="text" id="qty_3" class="form-control"/>
-			</div>
-			<div class="col-md-2">
-				<h5>QTY4</h5>
-				<input type="text" id="qty_4" class="form-control"/>
-			</div>
-			<div class="col-md-2">
-				<h5>QTY5</h5>
-				<input type="text" id="qty_5" class="form-control"/>
-			</div>
-			<div class="col-md-2">
-				<h5>QTY6</h5>
-				<input type="text" id="qty_6" class="form-control"/>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<h2><small>Flat Trim Size:</small></h2>
 					<input type="text" id="flat_length" class="form-control"/> X <input type="text" id="flat_width" class="form-control"/>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<h2><small>Folded Size:</small></h2>
 					<input type="text" id="fold_length" class="form-control"/> X <input type="text" id="fold_width" class="form-control"/>
 			</div>
+
 		</div>
+
 
 		<div class="row">
 			<h2><small>Ink:</small></h2>
@@ -331,7 +304,7 @@ Quick Quote
 		
 
 
-<button type="button" onclick="generatePrice()" class="btn btn-primary">Generate Quote</button> <br /><br />
+<button type="button" onclick="generatePrice()" class="btn btn-primary">Generate Price</button> <br /><br />
 
 			Your price:<INPUT type="text" id="generated_quote" readonly style="color:red;" class="form-control"/>
 
@@ -348,6 +321,7 @@ Quick Quote
 			<input type="hidden" id="get_contact" name="get_contact" value="">
 			<input type="hidden" id="get_company" name="get_company" value="">
 			<input type="hidden" id="get_email" name="get_email" value="">
+			<input type="hidden" id="get_quote_number" name="get_quote_number" value="">
 
 		    <input type="hidden" id="get_desc" name="get_desc" value="">
 		    <input type="hidden" id="get_FlattrimSize" name="get_FlattrimSize" value="">
@@ -376,6 +350,7 @@ Quick Quote
 		    <input type="hidden" id="get_sig" name="get_sig" value="">
 		    <input type="hidden" id="get_qty" name="get_qty" value="">
 
+
 		    <button type="submit" class="btn btn-info btn-lg" label="Generate Quote" onclick="generateQuote()">Generate Letter of Quote</button>
 		</form>
 	</div>
@@ -391,18 +366,10 @@ Quick Quote
 function paperCosts() {
 
 	var qnty_1 = document.getElementById("qty_1").value;
-	var qnty_2 = document.getElementById("qty_2").value;
-	var qnty_3 = document.getElementById("qty_3").value;
-	var qnty_4 = document.getElementById("qty_4").value;
-	var qnty_5 = document.getElementById("qty_5").value;
-	var qnty_6 = document.getElementById("qty_6").value;
+
 
 	qnty_1 = parseInt(qnty_1);
-  	qnty_2 = parseInt(qty_2);
-  	qnty_3 = parseInt(qty_3);
-  	qnty_4 = parseInt(qty_4);
-  	qnty_5 = parseInt(qty_5);
-  	qnty_6 = parseInt(qty_6);
+
 
   	var numup = qtyUp();
   	var numSheets = qnty_1/numup;
@@ -430,18 +397,10 @@ function indigoCosts(){
 	ink_back = parseInt(ink_back);
 
 	var qnty_1_1 = document.getElementById("qty_1").value;
-	var qnty_2_1 = document.getElementById("qty_2").value;
-	var qnty_3_1 = document.getElementById("qty_3").value;
-	var qnty_4_1 = document.getElementById("qty_4").value;
-	var qnty_5_1 = document.getElementById("qty_5").value;
-	var qnty_6_1 = document.getElementById("qty_6").value;
+
 
 	qnty_1_1 = parseInt(qnty_1_1);
-  	qnty_2 = parseInt(qty_2);
-  	qnty_3 = parseInt(qty_3);
-  	qnty_4 = parseInt(qty_4);
-  	qnty_5 = parseInt(qty_5);
-  	qnty_6 = parseInt(qty_6);
+
 
   	var numup1 = qtyUp();
   	var numSheets1 = qnty_1_1/numup1;
@@ -459,18 +418,10 @@ function indigoCosts(){
 function aq_hard() {
 
 	var qnty_1_2 = document.getElementById("qty_1").value;
-	var qnty_2_2 = document.getElementById("qty_2").value;
-	var qnty_3_2 = document.getElementById("qty_3").value;
-	var qnty_4_2 = document.getElementById("qty_4").value;
-	var qnty_5_2 = document.getElementById("qty_5").value;
-	var qnty_6_2 = document.getElementById("qty_6").value;
+
 
 	qnty_1_2 = parseInt(qnty_1_2);
-  	qnty_2 = parseInt(qty_2);
-  	qnty_3 = parseInt(qty_3);
-  	qnty_4 = parseInt(qty_4);
-  	qnty_5 = parseInt(qty_5);
-  	qnty_6 = parseInt(qty_6);
+
 
   	var numup2 = qtyUp();
   	var numSheets2 = qnty_1_2/numup2;
@@ -510,11 +461,7 @@ function aq_hard() {
 	function generatePrices() {
 
 	var qty_1 = document.getElementById("qty_1");
-	var qty_2 = document.getElementById("qty_2");
-	var qty_3 = document.getElementById("qty_3");
-	var qty_4 = document.getElementById("qty_4");
-	var qty_5 = document.getElementById("qty_5");
-	var qty_6 = document.getElementById("qty_6");
+
 
 
 
@@ -530,11 +477,7 @@ function aq_hard() {
 	//PARSE --------------
 
 	qty_1 = parseInt(qty_1);
-  	qty_2 = parseInt(qty_2);
-  	qty_3 = parseInt(qty_3);
-  	qty_4 = parseInt(qty_4);
-  	qty_5 = parseInt(qty_5);
-  	qty_6 = parseInt(qty_6);
+
 
 	
 
@@ -624,18 +567,10 @@ function press() {
 	
 
 	var qty_1_3 = document.getElementById("qty_1").value;
-	var qty_2_3 = document.getElementById("qty_2").value;
-	var qty_3_3 = document.getElementById("qty_3").value;
-	var qty_4_3 = document.getElementById("qty_4").value;
-	var qty_5_3 = document.getElementById("qty_5").value;
-	var qty_6_3 = document.getElementById("qty_6").value;
+
 
 	qty_1_3 = parseInt(qty_1_3);
-  	qty_2_3 = parseInt(qty_2_3);
-  	qty_3_3 = parseInt(qty_3_3);
-  	qty_4_3 = parseInt(qty_4_3);
-  	qty_5_3 = parseInt(qty_5_3);
-  	qty_6_3 = parseInt(qty_6_3);	
+
 
   	var numup4 = qtyUp();
   	var numSheets4 = qty_1_3/numup4;
@@ -661,18 +596,10 @@ function press() {
 function aq_soft() {
 
 	var qty_1_4 = document.getElementById("qty_1").value;
-	var qty_2_4 = document.getElementById("qty_2").value;
-	var qty_3_4 = document.getElementById("qty_3").value;
-	var qty_4_4 = document.getElementById("qty_4").value;
-	var qty_5_4 = document.getElementById("qty_5").value;
-	var qty_6_4 = document.getElementById("qty_6").value;
+
 
 	qty_1_4 = parseInt(qty_1_4);
-  	qty_2_4 = parseInt(qty_2_4);
-  	qty_3_4 = parseInt(qty_3_4);
-  	qty_4_4 = parseInt(qty_4_4);
-  	qty_5_4 = parseInt(qty_5_4);
-  	qty_6_4 = parseInt(qty_6_4);
+
 
   	var numup3 = qtyUp();
   	var numSheets3 = qty_1_4/numup3;
@@ -753,18 +680,10 @@ function proofs() {
 function round_corners() {
 
 	var qnty_1_5 = document.getElementById("qty_1").value;
-	var qnty_2_5 = document.getElementById("qty_2").value;
-	var qnty_3_5 = document.getElementById("qty_3").value;
-	var qnty_4_5 = document.getElementById("qty_4").value;
-	var qnty_5_5 = document.getElementById("qty_5").value;
-	var qnty_6_5 = document.getElementById("qty_6").value;
+
 
 	qnty_1_5 = parseInt(qnty_1_5);
-  	qnty_2_5 = parseInt(qnty_2_5);
-  	qnty_3_5 = parseInt(qnty_3_5);
-  	qnty_4_5 = parseInt(qnty_4_5);
-  	qnty_5_5 = parseInt(qnty_5_5);
-  	qnty_6_5 = parseInt(qnty_6_5);
+
 
   	var rounded = document.getElementById("rounded_corner_options");
 	var r_corners = rounded.options[rounded.selectedIndex].value;
@@ -866,18 +785,10 @@ function qtyUp() {
 function addTrim() {
 
 	var qnty_1_9 = document.getElementById("qty_1").value;
-	var qnty_2_9 = document.getElementById("qty_2").value;
-	var qnty_3_9 = document.getElementById("qty_3").value;
-	var qnty_4_9 = document.getElementById("qty_4").value;
-	var qnty_5_9 = document.getElementById("qty_5").value;
-	var qnty_6_9 = document.getElementById("qty_6").value;
+
 
 	qnty_1_9 = parseInt(qnty_1_9);
-  	qnty_2_9 = parseInt(qnty_2_9);
-  	qnty_3_9 = parseInt(qnty_3_9);
-  	qnty_4_9 = parseInt(qnty_4_9);
-  	qnty_5_9 = parseInt(qnty_5_9);
-  	qnty_6_9 = parseInt(qnty_6_9);
+
 
 
 		var trimPrice=0;
@@ -908,18 +819,10 @@ function addTrim() {
 function addFold() {
 
 	var qnty_1_11 = document.getElementById("qty_1").value;
-	var qnty_2_11 = document.getElementById("qty_2").value;
-	var qnty_3_11 = document.getElementById("qty_3").value;
-	var qnty_4_11 = document.getElementById("qty_4").value;
-	var qnty_5_11 = document.getElementById("qty_5").value;
-	var qnty_6_11 = document.getElementById("qty_6").value;
+
 
 	qnty_1_11 = parseInt(qnty_1_11);
-  	qnty_2_11 = parseInt(qnty_2_11);
-  	qnty_3_11 = parseInt(qnty_3_11);
-  	qnty_4_11 = parseInt(qnty_4_11);
-  	qnty_5_11 = parseInt(qnty_5_11);
-  	qnty_6_11 = parseInt(qnty_6_11);
+
 
 
 	var foldPrice=0;
@@ -942,18 +845,10 @@ function addFold() {
 function addScore() {
 
 	var qnty_1_12 = document.getElementById("qty_1").value;
-	var qnty_2_12 = document.getElementById("qty_2").value;
-	var qnty_3_12 = document.getElementById("qty_3").value;
-	var qnty_4_12 = document.getElementById("qty_4").value;
-	var qnty_5_12 = document.getElementById("qty_5").value;
-	var qnty_6_12 = document.getElementById("qty_6").value;
+
 
 	qnty_1_12 = parseInt(qnty_1_12);
-  	qnty_2_12 = parseInt(qnty_2_12);
-  	qnty_3_12 = parseInt(qnty_3_12);
-  	qnty_4_12 = parseInt(qnty_4_12);
-  	qnty_5_12 = parseInt(qnty_5_12);
-  	qnty_6_12 = parseInt(qnty_6_12);
+
 
   	  	var alreadyFolding = addFold();
 
@@ -988,18 +883,9 @@ function addScore() {
 function addPerf() {
 
 	var qnty_1_10 = document.getElementById("qty_1").value;
-	var qnty_2_10 = document.getElementById("qty_2").value;
-	var qnty_3_10 = document.getElementById("qty_3").value;
-	var qnty_4_10 = document.getElementById("qty_4").value;
-	var qnty_5_10 = document.getElementById("qty_5").value;
-	var qnty_6_10 = document.getElementById("qty_6").value;
 
 	qnty_1_10 = parseInt(qnty_1_10);
-  	qnty_2_10 = parseInt(qnty_2_10);
-  	qnty_3_10 = parseInt(qnty_3_10);
-  	qnty_4_10 = parseInt(qnty_4_10);
-  	qnty_5_10 = parseInt(qnty_5_10);
-  	qnty_6_10 = parseInt(qnty_6_10);
+
 
   	var alreadyFold = addFold();
   	var alreadyScore = addScore();
@@ -1036,18 +922,10 @@ function addPerf() {
 
 function addDrill() {
 	var qnty_1_6 = document.getElementById("qty_1").value;
-	var qnty_2_6 = document.getElementById("qty_2").value;
-	var qnty_3_6 = document.getElementById("qty_3").value;
-	var qnty_4_6 = document.getElementById("qty_4").value;
-	var qnty_5_6 = document.getElementById("qty_5").value;
-	var qnty_6_6 = document.getElementById("qty_6").value;
+
 
 	qnty_1_6 = parseInt(qnty_1_6);
-  	qnty_2_6 = parseInt(qnty_2_6);
-  	qnty_3_6 = parseInt(qnty_3_6);
-  	qnty_4_6 = parseInt(qnty_4_6);
-  	qnty_5_6 = parseInt(qnty_5_6);
-  	qnty_6_6 = parseInt(qnty_6_6);
+
 
 			    var drillPrice=0;
 			    //Get a reference to the form id="cakeform"
@@ -1192,18 +1070,10 @@ return a+b+c+d;
 	function addPad() {
 
 	var qnty_1_7 = document.getElementById("qty_1").value;
-	var qnty_2_7 = document.getElementById("qty_2").value;
-	var qnty_3_7 = document.getElementById("qty_3").value;
-	var qnty_4_7 = document.getElementById("qty_4").value;
-	var qnty_5_7 = document.getElementById("qty_5").value;
-	var qnty_6_7 = document.getElementById("qty_6").value;
+
 
 	qnty_1_7 = parseInt(qnty_1_7);
-  	qnty_2_7 = parseInt(qnty_2_7);
-  	qnty_3_7 = parseInt(qnty_3_7);
-  	qnty_4_7 = parseInt(qnty_4_7);
-  	qnty_5_7 = parseInt(qnty_5_7);
-  	qnty_6_7 = parseInt(qnty_6_7);
+
 
 	var padPrice=0;
   	var includePad = document.getElementById("pad_in").value;
@@ -1223,18 +1093,10 @@ return a+b+c+d;
 		function addShrink() {
 
 	var qnty_1_8 = document.getElementById("qty_1").value;
-	var qnty_2_8 = document.getElementById("qty_2").value;
-	var qnty_3_8 = document.getElementById("qty_3").value;
-	var qnty_4_8 = document.getElementById("qty_4").value;
-	var qnty_5_8 = document.getElementById("qty_5").value;
-	var qnty_6_8 = document.getElementById("qty_6").value;
+
 
 	qnty_1_8 = parseInt(qnty_1_8);
-  	qnty_2_8 = parseInt(qnty_2_8);
-  	qnty_3_8 = parseInt(qnty_3_8);
-  	qnty_4_8 = parseInt(qnty_4_8);
-  	qnty_5_8 = parseInt(qnty_5_8);
-  	qnty_6_8 = parseInt(qnty_6_8);
+
 
 	var shrinkPrice=0;
 	var includeShrink = document.getElementById("shrink").value;
@@ -1413,6 +1275,7 @@ function generateQuote() {
 	var get_company = document.getElementById("company").value;
 	var get_contact = document.getElementById("contact").value;
 	var get_email = document.getElementById("email").value;
+	var get_quote_number = document.getElementById("quote").value;
 	var get_salesRep = document.getElementById("sales_rep");
 	var get_sig = get_salesRep.options[get_salesRep.selectedIndex].value;
 
@@ -1448,6 +1311,7 @@ function generateQuote() {
 	document.getElementById("get_date").value = today;
 	document.getElementById("get_sig").value = get_sig;
 	document.getElementById("get_qty").value = get_qty;
+	document.getElementById("get_quote_number").value = get_quote_number;
 
 	document.getElementById("get_total").value = document.getElementById("generated_quote").value;
 
