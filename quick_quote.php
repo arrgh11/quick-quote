@@ -18,14 +18,17 @@ Quick Quote
 		<form name="quick_quote">
 
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<h2><small>Client Company:</small></h2><input type="text" id="company" class="form-control" />
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<h2><small>Client Contact:</small></h2><input type="text" id="contact" class="form-control" />
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<h2><small>Client Email:</small></h2><input type="text" id="email" class="form-control" />
+			</div>
+			<div class="col-md-3">
+				<h2><small>Quote Number:</small></h2><input type="text" id="quote" class="form-control" />
 			</div>
 		</div>
 
@@ -233,8 +236,10 @@ Quick Quote
 			</div>
 			<div class="col-md-4">
 				<h2><small>Paper Size:</small></h2> 
-					<input type="radio" value="1" name="paper_size" > 12x18</input>
-					<input type="radio" value="2" name="paper_size" > 13x19</input>
+					<select id="paper_size" class="form-control">
+						<option value="1">12x18</option>
+						<option value="2">13x19</option>
+					</select>
 			</div>
 		</div>
 
@@ -780,12 +785,6 @@ function round_corners() {
 
 
 
-
-var paper_sizes_2 = new Array();
-
-paper_sizes_2["1"] = 1;
-paper_sizes_2["2"] = 2;
-
 function qtyUp() {
 
 	var back_inks_2 = document.getElementById("ink_back");
@@ -797,22 +796,13 @@ function qtyUp() {
 	flat_length_1 = parseInt(flat_length_1);
 	flat_width_1 = parseInt(flat_width_1);
 
-	var theForm_4 = document.forms["quick_quote"];
-    var selected_size = theForm_4.elements["paper_size"];
-	
-	for(var i = 0; i < selected_size.length; i++) {
-        //if the radio button is checked
-        if(selected_size[i].checked) {
-           	var radio_paper = paper_sizes_2[selected_size[i].value];
-            break;
-        }
-    }
+	var paper_size = document.getElementById("paper_size");
+	var radio_paper = paper_size.options[paper_size.selectedIndex].value;
+	radio_paper = parseInt(radio_paper);
 
     var flatTrimSizes = 0;
 
     if (radio_paper == 1) {
-
-    	if (back_inks_2 > 0) {
 
 	    	var flatTrimSize1 = flat_width_1+0.125;
 	    	var flatTrimSize2 = flat_length_1+0.125;
@@ -831,67 +821,39 @@ function qtyUp() {
 	    	var product1 = roundTrimSize*roundTrimSize1;
 	    	var product2 = roundTrimSize2*roundTrimSize3;
 
-	    	if (product1 > product2) {
+	    	if (product1 < product2) {
 	    		var flatTrimSizes = product1;
 	    		
 	    	} else {
 	    		var flatTrimSizes = product2;
 	    		
 	    	}
-
-    	} else {
-
-    		var flatTrimSize1 = flat_width_1+0.125;
-	    	var flatTrimSize2 = flat_length_1+0.125;
-
-	    	var flatTrimSize1_3 = 11.7/flatTrimSize1;
-	    	var flatTrimSize1_4 = 17.5/flatTrimSize2;
-
-	    	var flatTrimSize1_5 = 11.7/flatTrimSize2;
-	    	var flatTrimSize1_6 = 17.5/flatTrimSize1;
-
-	    	var roundTrimSize = Math.floor(flatTrimSize1_3);
-	    	var roundTrimSize1 = Math.floor(flatTrimSize1_4);
-	    	var roundTrimSize2 = Math.floor(flatTrimSize1_5);
-	    	var roundTrimSize3 = Math.floor(flatTrimSize1_6);
-
-	    	var product1 = roundTrimSize*roundTrimSize1;
-	    	var product2 = roundTrimSize2*roundTrimSize3;
-
-	    	if (product1 > product2) {
-	    		var flatTrimSizes = product1;
-	    	
-	    	} else {
-	    		var flatTrimSizes = product2;
-	    		
-	    	}
-
-    	}
     }
 
     if (radio_paper == 2) {
-    	var flatTrimSize1 = flat_width_1+0.125;
-    	var flatTrimSize2 = flat_length_1+0.125;
+    	
+    	var flatTrimSize3_1 = flat_width_1+0.125;
+    	var flatTrimSize3_2 = flat_length_1+0.125;
 
-    	var flatTrimSize1_3 = 12.48/flatTrimSize1;
-    	var flatTrimSize1_4 = 18.26/flatTrimSize2;
+    	var flatTrimSize3_3 = 12.48/flatTrimSize3_1;
+    	var flatTrimSize3_4 = 18.26/flatTrimSize3_2;
 
-    	var flatTrimSize1_5 = 12.48/flatTrimSize2;
-    	var flatTrimSize1_6 = 18.26/flatTrimSize1;
+    	var flatTrimSize3_5 = 12.48/flatTrimSize3_2;
+    	var flatTrimSize3_6 = 18.26/flatTrimSize3_1;
 
-    	var roundTrimSize = Math.floor(flatTrimSize1_3);
-    	var roundTrimSize1 = Math.floor(flatTrimSize1_4);
-    	var roundTrimSize2 = Math.floor(flatTrimSize1_5);
-    	var roundTrimSize3 = Math.floor(flatTrimSize1_6);
+    	var roundTrimSize3 = Math.floor(flatTrimSize3_3);
+    	var roundTrimSize3_1 = Math.floor(flatTrimSize3_4);
+    	var roundTrimSize3_2 = Math.floor(flatTrimSize3_5);
+    	var roundTrimSize3_3 = Math.floor(flatTrimSize3_6);
 
-    	var product1 = roundTrimSize*roundTrimSize1;
-    	var product2 = roundTrimSize2*roundTrimSize3;
+    	var product3_1 = roundTrimSize3*roundTrimSize3_1;
+    	var product3_2 = roundTrimSize3_2*roundTrimSize3_3;
 
-    	if (product1 > product2) {
-    		var flatTrimSizes = product1;
+    	if (product3_1 > product3_2) {
+    		var flatTrimSizes = product3_1;
     		
     	} else {
-    		var flatTrimSizes = product2;
+    		var flatTrimSizes = product3_2;
     		
     	}
     }
