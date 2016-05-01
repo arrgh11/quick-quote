@@ -307,6 +307,9 @@ Quick Quote
 <button type="button" onclick="generatePrice()" class="btn btn-primary">Generate Price</button> <br /><br />
 
 			Your price:<INPUT type="text" id="generated_quote" readonly style="color:red;" class="form-control"/>
+			<br>
+			<div id="warning-box">
+			</div>
 
 			</form>
 
@@ -365,10 +368,21 @@ Quick Quote
 
 function paperCosts() {
 
+
 	var qnty_1 = document.getElementById("qty_1").value;
 
+		if (qnty_1 == '') {
+
+			var divobj = document.getElementById('warning-box');
+    		divobj.style.display='block';
+    		divobj.innerHTML = "<p class='bg-danger'>Please enter a Quantity</p>";
+
+		} else {
 
 	qnty_1 = parseInt(qnty_1);
+
+	var divobj = document.getElementById('warning-box');
+    divobj.style.display='none';
 
 
   	var numup = qtyUp();
@@ -383,6 +397,9 @@ function paperCosts() {
 	var paper_cost_1 = paper_total+paper_cost;
 
 	return paper_cost_1;
+
+}
+
 }
 
 
